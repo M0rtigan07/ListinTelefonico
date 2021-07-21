@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ListinTelefonico.Models.Contactos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+                      <div class="jumbotron" style="background-color:cadetblue">
+                          <h1 style="font-family:Verdana; letter-spacing:5px;">Lista De Contactos</h1>
+                          <p>
+                              <a asp-action="Create" style="font-family: Rockwell; letter-spacing:2px">Añadir Nuevo Contacto</a>
+                          </p>
+
+
+
+
+                          <table class="table" style="background-color:whitesmoke; ">
+                              <thead>
+                                  <tr>
+                                      <th>
+                                          @Html.DisplayNameFor(model => model.nombre)
+                                      </th>
+                                      <th>
+                                          @Html.DisplayNameFor(model => model.telefono)
+                                      </th>
+                                      <th></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  @foreach (var item in Model)
+                                  {
+                                      <tr>
+                                          <td>
+                                              @Html.DisplayFor(modelItem => item.nombre)
+                                          </td>
+                                          <td>
+                                              @Html.DisplayFor(modelItem => item.telefono)
+                                          </td>
+                                          <td>
+                                              <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
+                                              <a asp-action="Details" asp-route-id="@item.ID">Detalles</a> |
+                                              <a asp-action="Delete" asp-route-id="@item.ID">Eliminar</a>
+                                          </td>
+                                      </tr>
+                                  }
+                              </tbody>
+                          </table>
+                      </div>
